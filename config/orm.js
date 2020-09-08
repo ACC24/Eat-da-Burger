@@ -28,8 +28,8 @@ function objToSql(ob) {
 
 let orm = {
   selectAll: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
+    let query = "SELECT * FROM " + tableInput + ";";
+    connection.query(query, function(err, result) {
       if (err) {
         throw err;
       }
