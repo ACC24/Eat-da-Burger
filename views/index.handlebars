@@ -1,14 +1,16 @@
 
-
+{{!-- <img src="https://media.giphy.com/media/l3V0ADaHw4aAbfwOI/giphy.gif" alt="Burger" width= "100" height= "100"> --}}
 
 <h1>Eat-Da-Burger</h1>
 
 <ul>
   {{#each burgers}}
+  {{#unless this.devoured}}
   <li>
   	<textarea>{{this.id}}. {{this.burger_name}}</textarea>
       <button data-id="{{this.id}}" class="devour">Devour it!</button>
   </li>
+    {{/unless}}
 	  {{/each}}
 </ul>
 
@@ -23,17 +25,15 @@
 
 <p>Enter a burger you want to eat. Click the "Submit" button.</p>
 
-</div class="devour-list">
+</div class="form-control">
 <ul>
-
-  {{#if devoured}}
   {{#each burgers}}
+  {{#if this.devoured}}
   <li>
     <textarea>{{this.id}}. {{this.burger_name}}</textarea>
   </li>
-  {{/each}}
   {{/if}}
-
+  {{/each}}
 </ul>
 
 <script>
@@ -52,7 +52,7 @@
         data: newDevoured
       }).then(
         function() {
-          console.log("changed devoured to", newDevoured);
+          console.log("changed devour to", newDevoured);
           // Reload the page to get the updated list
           location.reload();
         }
