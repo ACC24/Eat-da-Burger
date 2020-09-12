@@ -1,83 +1,83 @@
-
 {{!-- <img src="https://media.giphy.com/media/l3V0ADaHw4aAbfwOI/giphy.gif" alt="Burger" width= "100" height= "100"> --}}
 
-<h1>Eat-Da-Burger</h1>
-
-<ul>
-  {{#each burgers}}
-  {{#unless this.devoured}}
-  <li>
-  	<textarea>{{this.id}}. {{this.burger_name}}</textarea>
-      <button data-id="{{this.id}}" class="devour">Devour it!</button>
-  </li>
-    {{/unless}}
-	  {{/each}}
-</ul>
-
-
-<form class="create-form">
-
-  <div class="form-group">
-     <input type="text" id="burger-input" name="name">
+<div>
+<h1><span> Eat-Da-Burger </span></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class=" col-md-6 myBurger">
+      <ul>
+        {{#each burgers}}
+        {{#unless this.devoured}}
+        <li>
+          <textarea  id="not-devoured">{{this.id}}. {{this.burger_name}}</textarea>
+          <button data-id="{{this.id}}" class="devour">Devour it!</button>
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class=" col-md-6 devouredBurgers">
+      <ul>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <li>
+              <textarea id="just-devoured">{{this.id}}. {{this.burger_name}}</textarea>
+            </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class=" col-md-12 createBurger">
+      <form class="create-form">
+        <div class="form-group">
+          <input type="text" id="burger-input" name="name">
+        </div>
+        <button class="submitButton" type="submit">Submit</button>
+        
+      <p><span>Enter a burger you want to eat. Click the "Submit" button.</span></p>
+      </form>
+    </div>
+    
   </div>
- <button type="submit">Submit</button>
-</form>
-
-<p>Enter a burger you want to eat. Click the "Submit" button.</p>
-
-</div class="form-control">
-<ul>
-  {{#each burgers}}
-  {{#if this.devoured}}
-  <li>
-    <textarea>{{this.id}}. {{this.burger_name}}</textarea>
-  </li>
-  {{/if}}
-  {{/each}}
-</ul>
+</div>
 
 <script>
-  $(function() {
-    $(".devour").on("click", function(event) {
+  $(function () {
+    $(".devour").on("click", function (event) {
       let id = $(this).data("id");
       let newlyDevoured = $(this).data("newlyDevoured");
-  
+
       let newDevoured = {
         devoured: newlyDevoured
       };
-  
-      // Send the PUT request.
+
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
         data: newDevoured
       }).then(
-        function() {
+        function () {
           console.log("changed devour to", newDevoured);
-          // Reload the page to get the updated list
           location.reload();
         }
       );
     });
-  
-    $(".create-form").on("submit", function(event) {
-      // Make sure to preventDefault on a submit event.
+
+    $(".create-form").on("submit", function (event) {
       event.preventDefault();
-  
       let newBurger = {
         name: $("#burger-input").val().trim(),
       };
-  
-      // Send the POST request.
+
       $.ajax("/api/burgers", {
         type: "POST",
         data: newBurger
       }).then(
-        function() {
+        function () {
           console.log("created new burger");
-          // Reload the page to get the updated list
           location.reload();
         }
       );
     });
-});
+  });
 </script>

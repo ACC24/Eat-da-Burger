@@ -1,0 +1,82 @@
+body {
+   background-color: rgb(255, 196, 0);
+   background-image: url("https://media.giphy.com/media/PlaAi2IRbr4x9S3Wyv/giphy.gif");
+
+   /* https://media.giphy.com/media/KY3H9cExD57HBZ34hb/giphy.gif */
+
+   /* https://media.giphy.com/media/3250yR4wFJkZsa45Rp/giphy.gif */
+
+   /* background-size: cover;
+   height: 100vh;
+   padding:0;
+   margin:0;  */
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    margin-left: 600px;
+    margin-top: 20px;
+} 
+
+span{
+    background-color: white;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: black;
+    padding: 5px; 
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+.create-form{
+   margin-left: 340px;
+}
+
+#burger-input {
+    height: 85px;
+    width: 300px;
+    border-radius: 5px;
+    border-color: black;
+    margin-left: 15px;
+}
+
+.submitButton {
+    color: white;
+    background-color: blue;
+    margin-left: 120px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    width: 200px;
+    border-radius: 5px;
+    border-color: black;
+}
+
+#not-devoured {
+    margin-left: 120px;
+}
+
+#just-devoured {
+    color: rgb(214, 210, 210);
+    margin-left: 10px;
+}
+
+p {
+    font-size: 14px;
+    margin-right: 300px;
+}
+
+button{
+    border-radius: 5px;
+}
+
+
