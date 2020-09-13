@@ -9,8 +9,6 @@ Link to the deployed application : https://glacial-brushlands-01334.herokuapp.co
 
 <img src="public\assets\images\2020-09-12 (2).png">
 
-<img src="public\assets\images\2020-09-12 (3).png">
-
 <img src="public\assets\images\2020-09-12 (4).png">
 
 
